@@ -2,7 +2,7 @@
 
 namespace TestEmpleados.DataModel
 {
-    public interface IEmpleadoRepository : IGenericRepository<Empleado>
+    public interface ISubAreaRepository : IGenericRepository<SubArea>
     {
     }
 }

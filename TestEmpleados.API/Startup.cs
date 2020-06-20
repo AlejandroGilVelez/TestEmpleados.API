@@ -42,6 +42,8 @@ namespace TestEmpleados.API
             // Inyección de Repositorios
             services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IAreaRepository, AreaRepository>();
+            services.AddScoped<ISubAreaRepository, SubAreaRepository>();
 
             // Definimos autenticación del aplicativo
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

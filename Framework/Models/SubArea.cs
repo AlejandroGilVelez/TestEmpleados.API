@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Framework.Models
 {
@@ -13,5 +14,7 @@ namespace Framework.Models
         public string Descripcion { get; set; }
 
         public Area Area { get; set; }
+
+        public Guid AreaId { get; set; }
     }
 }
