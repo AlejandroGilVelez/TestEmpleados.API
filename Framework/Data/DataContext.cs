@@ -17,5 +17,7 @@ namespace Framework.Data
 
         public DbSet<SubArea> SubAreas { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
     }
 }

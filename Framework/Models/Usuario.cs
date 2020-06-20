@@ -2,7 +2,7 @@
 
 namespace Framework.Models
 {
-    public class Empleado : BaseModel
+    public class Usuario : BaseModel
     {
         [Required]
         public long NroIdentificacion { get; set; }
@@ -18,12 +18,18 @@ namespace Framework.Models
         [Required]
         [MaxLength(200)]
         public string Email { get; set; }
-
+        
         [MaxLength(100)]
-        public string  Telefono { get; set; }
+        public string Telefono { get; set; }
 
-        public TipoIdentificacion TipoIdentificacion { get; set; }
+        [Required]
+        public byte[] PasswordHash { get; set; }
 
-        public Area Area { get; set; }
+        [Required]
+        public byte[] PasswordSalt { get; set; }
+
+        [Required]
+        public bool Activo { get; set; }
+
     }
 }

@@ -10,7 +10,7 @@ namespace Framework.Models
         public string Nombre { get; set; }
 
         [Required]
-        [MaxLength(10)]
+        [MaxLength(150)]
         public string Descripcion { get; set; }
 
         public List<Empleado> Empleado { get; set; }

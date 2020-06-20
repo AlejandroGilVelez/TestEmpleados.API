@@ -4,14 +4,16 @@ using Framework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TestEmpleados.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200620020513_UpdateDatanotations")]
+    partial class UpdateDatanotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,10 +80,6 @@ namespace TestEmpleados.API.Migrations
 
                     b.Property<long>("NroIdentificacion")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<Guid?>("TipoIdentificacionId")
                         .HasColumnType("uniqueidentifier");

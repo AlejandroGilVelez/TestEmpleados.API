@@ -46,7 +46,16 @@ namespace TestEmpleados.DataModel
 
         public async Task<T> Find(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes)
         {
-            return await context.Set<T>().Include(includes.FirstOrDefault()).Where(predicate).FirstOrDefaultAsync();
+
+            IQueryable<T> consulta = context.Set<T>().Where(predicate);
+
+            foreach (var item in includes)
+            {
+                consulta = consulta.Include(item);
+            }
+
+            return await consulta.FirstOrDefaultAsync();
+
         }
 
         public async Task<IList<T>> FindAll(Expression<Func<T, bool>> predicate)
@@ -61,6 +70,19 @@ namespace TestEmpleados.DataModel
             var consulta = await context.Set<T>().ToListAsync();
 
             return consulta;
+        }
+
+        public async Task<IList<T>> GetAll(params Expression<Func<T, object>>[] includes)
+        {         
+
+            IQueryable<T> consulta =  context.Set<T>();
+
+            foreach (var item in includes)
+            {
+                consulta = consulta.Include(item);
+            }
+
+            return await consulta.ToListAsync();
         }
     }
 }
